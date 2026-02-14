@@ -1,7 +1,7 @@
 [project]
-name = "python-package-template"
+name = "data-viewer"
 version = "0.1.0"
-description = "A Template for Python Packages"
+description = "A Simple Data Viewer"
 readme = "README.md"
 authors = [
     { name = "MNIKIEMA", email = "nikiemamahamadi01@gmail.com" }
@@ -10,14 +10,21 @@ requires-python = ">=3.13"
 dependencies = []
 
 [project.scripts]
-python-package-template = "python_package_template:main"
+python-package-template = "data_viewer:main"
 
 [build-system]
 requires = ["hatchling"]
 build-backend = "hatchling.build"
 
 [tool.hatch.build.targets.wheel]
-packages = ["src/python_package_template"]
+packages = ["src/data_viewer"]
+
+dependencies = [
+    "datasets>=4.5.0",
+    "duckdb>=1.4.4",
+    "gradio>=6.5.1",
+    "pandas>=3.0.0",
+]
 
 [dependency-groups]
 dev = [
@@ -44,7 +51,7 @@ fixable = ["ALL"]
 "**/*.py" = ["E501"]
 
 [tool.ruff.lint.isort]
-known-first-party = ["python_package_template"]
+known-first-party = ["data_viewer"]
 
 [tool.ruff.format]
 # Use double quotes for strings.
